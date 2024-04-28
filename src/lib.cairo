@@ -3,13 +3,13 @@ fn main() {
     let result = check_num(30);
     println!("Check_sum function result here: {result}");
     let sum: u16 = add_num(20, 4);
-    println!("The sum of two numbers is: {sum}");
+    println!("The sum is: {sum}");
     let diff: u16 = sub_num(12, 3);
-    println!("The difference of 12 and 3 is: {}", sub);
+    println!("The difference is: {}", sub);
     let mul_val: u16 = mul_num(4, 5);
-    println!("The product of 4 and 5 equals {}", mul_val);
+    println!("The product is {}", mul_val);
     let div_val: u16 = div_num(12, 2);
-    println!("The division of 12 and 2 equals {}", div_val);
+    println!("The result is {}", div_val);
 }
 
 // Short string data type
