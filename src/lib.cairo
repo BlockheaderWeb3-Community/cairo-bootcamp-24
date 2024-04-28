@@ -1,17 +1,42 @@
 fn main() {
+    // declare variables to be passed as argument to the functions
+    let num1: u16 = 5;
+    let num2: u16 = 3;
+    let num3: u16 = 0;
+
+    // functions calls
     short_str();
     let result = check_num(30);
     println!("check_sum fn result here: {result}");
-    let sum: u16 = add_num(10, 5);
-    println!("the sum of 2 numbers is: {sum}");
-    let sum: u16 = add_num(5, 3);
-    println!("The sum of 5 and 3 equal {}", sum);
-    let sub: u16 = sub_num(2, 1);
-    println!("The subtraction of 2 and 1 equal {}", sub);
-    let mul_val: u16 = mul_num(2, 2);
-    println!("The multiplication of 2 and 2 equal {}", mul_val);
-    let div_val: u16 = div_num(10, 0);
-    println!("The division of 10 and 2 equal {}", div_val);
+    
+    // sum call
+    let sum: u16 = add_num(num1, num2);
+    println!("The sum of {} and {} equal {}",num1, num2, sum);
+
+    // subtraction call
+    let sub: u16 = sub_num(num1, num2);
+    println!("The subtraction of {} and {} equal {}", num1, num2, sub);
+
+    // multiplication call
+    let mul_val: u16 = mul_num(num1, num2);
+    println!("The multiplication of {} and {} equal {}",num1, num2, mul_val);
+
+    // division call
+    let div_val: u16 = div_num(num1, num3);
+
+    if div_val == 0 {
+        println!("\tKindly input a non zero divisor.");
+    } else {
+        println!("The division of {} and {} equal {}", num1, num3, div_val);
+    }
+    
+    let div_val: u16 = div_num(num1, num2);
+    if div_val == 0 {
+        println!("\tKindly input a non zero divisor.");
+    } else {
+        println!("The division of {} and {} equal {}", num1, num2, div_val);
+    }
+
 }
 
 // short string data type
