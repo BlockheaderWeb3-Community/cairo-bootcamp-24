@@ -22,20 +22,8 @@ fn main() {
     println!("The multiplication of {} and {} equal {}", num1, num2, mul_val);
 
     // division call
-    let div_val: u16 = div_num(num1, num3);
-
-    if div_val == 0 {
-        println!("\tKindly input a non zero divisor.");
-    } else {
-        println!("The division of {} and {} equal {}", num1, num3, div_val);
-    }
-
-    let div_val: u16 = div_num(num1, num2);
-    if div_val == 0 {
-        println!("\tKindly input a non zero divisor.");
-    } else {
-        println!("The division of {} and {} equal {}", num1, num2, div_val);
-    }
+    let _div_val1: u16 = div_num(num1, num3);
+    let _div_val: u16 = div_num(num1, num2);
 }
 
 // short string data type
@@ -75,5 +63,7 @@ fn div_num(n1: u16, n2: u16) -> u16 {
         println!("\tZeroDivisionError Not allowed!");
         return 0;
     }
-    (n1 / n2)
+    let result = (n1 / n2);
+    println!("The division of {} by {} equal {}", n1, n2, result);
+    result
 }
