@@ -8,10 +8,10 @@ fn main() {
     short_str();
     let result = check_num(30);
     println!("check_sum fn result here: {result}");
-    
+
     // sum call
     let sum: u16 = add_num(num1, num2);
-    println!("The sum of {} and {} equal {}",num1, num2, sum);
+    println!("The sum of {} and {} equal {}", num1, num2, sum);
 
     // subtraction call
     let sub: u16 = sub_num(num1, num2);
@@ -19,7 +19,7 @@ fn main() {
 
     // multiplication call
     let mul_val: u16 = mul_num(num1, num2);
-    println!("The multiplication of {} and {} equal {}",num1, num2, mul_val);
+    println!("The multiplication of {} and {} equal {}", num1, num2, mul_val);
 
     // division call
     let div_val: u16 = div_num(num1, num3);
@@ -29,14 +29,13 @@ fn main() {
     } else {
         println!("The division of {} and {} equal {}", num1, num3, div_val);
     }
-    
+
     let div_val: u16 = div_num(num1, num2);
     if div_val == 0 {
         println!("\tKindly input a non zero divisor.");
     } else {
         println!("The division of {} and {} equal {}", num1, num2, div_val);
     }
-
 }
 
 // short string data type
