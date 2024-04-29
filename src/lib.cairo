@@ -1,27 +1,17 @@
+
+mod addition;
+mod check_num;
+mod long_str;
+mod is_even;
+
+use addition::add_num;
+use check_num::calculate;
+use long_str::gm_long_str;
+// use is_even::{is_sum_even, check_is_even };
+
 fn main() {
-    short_str();
-    let result = check_num(30);
-    println!("check_sum fn result here: {result}");
-    let sum: u16 = add_num(10, 5);
-    println!("the sum of 2 numbers is: {sum}");
-}
-
-// short string data type
-fn short_str() {
-    println!("GM Cairo!");
-}
-
-// bool data type
-fn check_num(n1: u8) -> bool {
-    if n1 > 20 {
-        return true;
-    }
-    return false;
-}
-
-// function to perform basic addition arithmetic operation
-fn add_num(n1: u16, n2: u16) -> u16 {
-    let result: u16 = n1 + n2;
-    return result;
+    let is_even_result: bool = is_even::is_sum_even(2, 2);
+    println!("is even result here___1: {}", is_even_result);
+    println!("is even result here___2: {is_even_result}");
 }
 
