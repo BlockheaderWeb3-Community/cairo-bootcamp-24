@@ -1,4 +1,3 @@
-
 mod addition;
 mod check_num;
 mod long_str;
@@ -9,7 +8,7 @@ mod basic_arithmetic_ops;
 use addition::add_num;
 use check_num::calculate;
 use long_str::gm_long_str;
-use basic_arithmetic_ops::{ sub_num, mul_num, div_num };
+use basic_arithmetic_ops::{sub_num, mul_num, div_num};
 // use is_even::{is_sum_even, check_is_even };
 
 fn main() {
