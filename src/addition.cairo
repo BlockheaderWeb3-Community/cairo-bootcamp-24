@@ -1,5 +1,5 @@
-// function to perform basic addition arithmetic operation
-pub fn add_num(n1: u16, n2: u16) -> u16 {
-    let result: u16 = n1 + n2;
-    return result;
+pub fn add_num(num1: u32, num2: u32) -> u32 {
+    // assert(num1 != 0, deep_dive::errors::Errors::ZERO_AMOUNT);
+    // assert(num2 != 0, deep_dive::errors::Errors::ZERO_AMOUNT);
+    num1 + num2
 }
