@@ -1,6 +1,6 @@
 # Introduction to Cairo
 
-This repo introduces the core fundamentals for writing Cairo program
+On this branch of this repo, we explore the core fundamentals for writing a Cairo program. To explore Starknet contracts, switch to `starknet-contract` branch
 
 ##  Setting Up Development Environment
 
