@@ -8,10 +8,10 @@
 3. Use this free RPC provider: https://free-rpc.nethermind.io/sepolia-juno/
 
 4. Create an account contract by running this command on your terminal:
-sncast -u https://free-rpc.nethermind.io/sepolia-juno/ account create -n <name> --add-profile <profile_name>
+``sncast -u https://free-rpc.nethermind.io/sepolia-juno/ account create -n <name> --add-profile <profile_name>`
 
 5. Deploy the account contract:
-sncast --url https://free-rpc.nethermind.io/sepolia-juno account deploy --name <account_name> 
+`sncast --url https://free-rpc.nethermind.io/sepolia-juno account deploy --name <account_name>`
 
 `NB`
 Running the above command should trigger an error: 
@@ -20,11 +20,11 @@ That why your account must be funded; to fund your account, visit - https://star
 
 Compile your contract by running: scarb build
 
-Declare your contract:
-sncast --account test_deploy -u <url> declare --contract-name <contract_name>
+- Declare your contract:
+`sncast --account test_deploy -u <url> declare --contract-name <contract_name>`
 
-Deploy your contract:
-sncast  --account <your_account> --url <your_rpc_url> deploy  --class-hash <generated_class_hash>
+- Deploy your contract:
+`sncast  --account <your_account> --url <your_rpc_url> deploy  --class-hash <generated_class_hash>`
 
 Alternatively, you can create a `snfoundry.toml` with the following config:
 ```
@@ -61,13 +61,16 @@ While deploying, make sure you check the constructor argument of the contract yo
 
 --- 
 ##### Interacting with Deployed Contracts
-Invoke: to execute the logic of a state-changing (writes) function within your deployed contracts from the terminal, run
-sncast --url <your_rpc_url>  --account <account_name> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>
+- Invoke: to execute the logic of a state-changing (writes) function within your deployed contracts from the terminal, run
+`sncast --url <your_rpc_url>  --account <account_name> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>`
+If you have configured your `snfoundry.toml` file, run:
+`sncast --profile <your_profile> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>`
 
 
 
-Call: to execute the logic of a non-state-changing (reads) function within your deployed contracts from the terminal, run:
-sncast --url <your_rpc_url>  --account <account_name> call --contract-address <your_contract_address> --function "<your_function_name"
+
+- Call: to execute the logic of a non-state-changing (reads) function within your deployed contracts from the terminal, run:
+`sncast --url <your_rpc_url>  --account <account_name> call --contract-address <your_contract_address> --function "<your_function_name"`
 
 
 NB:
@@ -76,7 +79,6 @@ To test out dispatchers, please call the address the AggregatorContract which co
 In the event the function to be called accepts some args, append the call --calldata flag to the above invoke and call commands with the appropriate args
 
 
-
-To compile your program, run `scarb build`
+To compile your contract, run `scarb build`
 
 

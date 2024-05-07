@@ -1,4 +1,4 @@
-`Session-6 Assignment`
+## Session-6 Assignment
 
 1. Refer to the `KillSwitch` contract: https://github.com/starknet-edu/kill-switch/blob/master/src/lib.cairo
 2. Modify this `KillSwitch` contract by adding the following to the trait:
