@@ -13,18 +13,36 @@
 5. Deploy the account contract:
 `sncast --url https://free-rpc.nethermind.io/sepolia-juno account deploy --name <account_name>`
 
-`NB`
+>`NB`
 Running the above command should trigger an error: 
-error: Account balance is smaller than the transaction's `max_fee`.
-That why your account must be funded; to fund your account, visit - https://starknet-faucet.vercel.app/ 
+`error: Account balance is smaller than the transaction's max_fee`.
+That why your account must be funded; to fund your account, visit - https://starknet-faucet.vercel.app/ and paste the account address that was generated on step 4 to request for testnet token.
 
-- Compile your contract by running: `scarb build`
+6. Compile your contract by running: 
+`scarb build`
 
-- Declare your contract:
-`sncast --account test_deploy -u <url> declare --contract-name <contract_name>`
+_Output_
+![alt text](images/image-3.png)
 
-- Deploy your contract:
-`sncast  --account <your_account> --url <your_rpc_url> deploy  --class-hash <generated_class_hash>`
+>If you get an error like `scarb: command not found`, then it means you don't have scarb installed. To install scarb, run this command in your terminal `curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh`. You can checkout the full guide [here](https://docs.swmansion.com/scarb/download.html) ![alt text](images/image-4.png)
+
+
+7. Declare your contract:
+`sncast --account <your_account_name> --url https://free-rpc.nethermind.io/sepolia-juno/ declare --contract-name <contract_name>`
+>Example of a contract name is `AggregatorContract`
+
+_Output_
+![alt text](images/image-2.png)
+
+8. Deploy your contract:
+`sncast  --account <your_account_name> --url https://free-rpc.nethermind.io/sepolia-juno/ deploy  --class-hash <generated_class_hash>`
+
+_Output_
+![alt text](images/image-1.png)
+
+
+🥳🥳🥳 You have successfully deployed your first contract
+
 
 Alternatively, you can create a `snfoundry.toml` with the following config:
 ```
@@ -38,9 +56,6 @@ Using this approach simplifies interactions using `sncast` as you can simply run
 
 While deploying, make sure you check the constructor argument of the contract you are trying to deploy. All arguments must be passed in appropriately; for such case, use this command:
 `sncast  --profile <name_of_profile_on_snfoundry.toml>  --class-hash <your_class_hash>  --constructor-calldata <your_constructor_args>`
-
-
-
 
 
 ---
@@ -62,15 +77,13 @@ While deploying, make sure you check the constructor argument of the contract yo
 --- 
 ##### Interacting with Deployed Contracts
 - Invoke: to execute the logic of a state-changing (writes) function within your deployed contracts from the terminal, run
-`sncast --url <your_rpc_url>  --account <account_name> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>`
+`sncast --url https://free-rpc.nethermind.io/sepolia-juno/  --account <account_name> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>`
 If you have configured your `snfoundry.toml` file, run:
 `sncast --profile <your_profile> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>`
 
 
-
-
 - Call: to execute the logic of a non-state-changing (reads) function within your deployed contracts from the terminal, run:
-`sncast --url <your_rpc_url>  --account <account_name> call --contract-address <your_contract_address> --function "<your_function_name"`
+`sncast --url https://free-rpc.nethermind.io/sepolia-juno/  --account <account_name> call --contract-address <your_contract_address> --function "<your_function_name"`
 
 
 NB:
