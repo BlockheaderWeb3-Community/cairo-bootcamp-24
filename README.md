@@ -8,17 +8,17 @@
 3. Use this free RPC provider: https://free-rpc.nethermind.io/sepolia-juno/
 
 4. Create an account contract by running this command on your terminal:
-``sncast -u https://free-rpc.nethermind.io/sepolia-juno/ account create -n <name> --add-profile <profile_name>`
+`sncast -u https://free-rpc.nethermind.io/sepolia-juno/ account create -n <name> --add-profile <profile_name>`
 
 5. Deploy the account contract:
 `sncast --url https://free-rpc.nethermind.io/sepolia-juno account deploy --name <account_name>`
 
 `NB`
 Running the above command should trigger an error: 
-error: Account balance is smaller than the transaction's max_fee.
+error: Account balance is smaller than the transaction's `max_fee`.
 That why your account must be funded; to fund your account, visit - https://starknet-faucet.vercel.app/ 
 
-Compile your contract by running: scarb build
+- Compile your contract by running: `scarb build`
 
 - Declare your contract:
 `sncast --account test_deploy -u <url> declare --contract-name <contract_name>`
@@ -75,8 +75,8 @@ If you have configured your `snfoundry.toml` file, run:
 
 NB:
 
-To test out dispatchers, please call the address the AggregatorContract which contains dispatchers to call the logic of Ownable and Counter contracts respectively
-In the event the function to be called accepts some args, append the call --calldata flag to the above invoke and call commands with the appropriate args
+To test out dispatchers, please call the address of the `AggregatorContract` which contains dispatchers to call the logic of `Ownable` and `Counter` contracts respectively.
+In the event the function to be called accepts some args, append the call `--calldata` flag to the above invoke and call commands with the appropriate args.
 
 
 To compile your contract, run `scarb build`
