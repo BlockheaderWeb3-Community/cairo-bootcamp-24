@@ -1,5 +1,5 @@
 mod addition;
-pub mod errors;
+mod errors;
 mod ownable_contract;
 mod counter_contract;
 mod aggregator_contract;

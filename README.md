@@ -76,23 +76,23 @@ While deploying, make sure you check the constructor argument of the contract yo
 
 
 ---
-Introduction to Dispatchers
-Deployed Contracts
-#### OwnerContract
-[x] class hash - 0x3ccaae754f46e0d1ad4080ce2095dfaef1539bc55c260f09790164a798312ce  
-[x] address -  0x10643c1ad9f6effd8af79b32163977e803db69aae21444005044aeea85efc52
+## Introduction to Dispatchers
+### Deployed Contracts on Sepolia Testnet
+##### OwnerContract
+- [x] class hash - 0x058d259a9c062f841b8658701afd553c8b51b7eb65cf1fea3e53cd33fc507a29
+- [x] address -  0x10643c1ad9f6effd8af79b32163977e803db69aae21444005044aeea85efc52
 
-#### CounterContract
-[x] class hash - 0x58d259a9c062f841b8658701afd553c8b51b7eb65cf1fea3e53cd33fc507a29 
-[x] address - 0x5afdb452821d219d5b8bc68a44ca3c6fa4dfc313150d30d093a279c090d69e3
+##### CounterContract
+- [x] class hash - 0x05f8ca4d37e05826fb90bd68d6ceff9ad3bd5a7ba51dfea46407f9f3aa723442
+- [x] address - 0x5afdb452821d219d5b8bc68a44ca3c6fa4dfc313150d30d093a279c090d69e3
 
-#### AggregatorContract
-[x] class hash - 0x3cda0dfba87206ed7b8861729a3af653af6682b2c76ec6d4ca73dbd41a5fc11
-[x] address - 0x1b963d5bcc6bcacd3fdd0d2fec50a6e4ac8b150a74ef2221a4b3622ffe94ec3
+##### AggregatorContract
+- [x] class hash - 0x03cda0dfba87206ed7b8861729a3af653af6682b2c76ec6d4ca73dbd41a5fc11
+- [x] address - 0x1b963d5bcc6bcacd3fdd0d2fec50a6e4ac8b150a74ef2221a4b3622ffe94ec3
 
 
 --- 
-Interacting with Deployed Contracts
+##### Interacting with Deployed Contracts
 Invoke: to execute the logic of a state-changing (writes) function within your deployed contracts from the terminal, run
 sncast --url <your_rpc_url>  --account <account_name> invoke --contract-address <your_contract_address> --function "<your_function_name>" --calldata <fn_args>
 
@@ -104,7 +104,7 @@ sncast --url <your_rpc_url>  --account <account_name> call --contract-address <y
 
 NB:
 
-To test out dispatchers, please call the address the CallerContract which contains dispatchers to call the logic of Ownable and Counter contracts respectively
+To test out dispatchers, please call the address the AggregatorContract which contains dispatchers to call the logic of Ownable and Counter contracts respectively
 In the event the function to be called accepts some args, append the call --calldata flag to the above invoke and call commands with the appropriate args
 
 
