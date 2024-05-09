@@ -47,6 +47,8 @@ pub mod AggregatorContract {
             counter_contract_adress: ContractAddress,
             kill_switch_contract_address: ContractAddress
         ) {
+            IKillSwitchDispatcher { contract_address: kill_switch_contract_address }.activate();
+
             let kill_switch_status = IKillSwitchDispatcher {
                 contract_address: kill_switch_contract_address
             }
@@ -55,6 +57,8 @@ pub mod AggregatorContract {
             let current_count = ICounterDispatcher { contract_address: counter_contract_adress }
                 .get_count();
             self.aggr_count.write(current_count * 2);
+
+            IKillSwitchDispatcher { contract_address: kill_switch_contract_address }.deactivate();
         }
 
         fn get_aggr_count(self: @ContractState) -> u32 {
@@ -63,8 +67,5 @@ pub mod AggregatorContract {
     }
 }
 // 0x1b963d5bcc6bcacd3fdd0d2fec50a6e4ac8b150a74ef2221a4b3622ffe94ec3
-
-// contract_address: 0x40c9ed24c04827ed76045aa218b56bc85688a92b7be17e8ec4745106846269c
-// txn_hash: 0x6a5c8190770e3666eb7a81ded11461096fac078b0ac754e4c3efa68b427be7d
 
 
