@@ -6,6 +6,9 @@ pub trait ICounter<TContractState> {
 
 #[starknet::contract]
 mod CounterContract {
+    use testing_using_snforge::errors::Errors::{ZERO_AMOUNT};
+    use testing_using_snforge::addition::add_num;
+
     #[storage]
     struct Storage {
         count: u32,
@@ -14,9 +17,9 @@ mod CounterContract {
     #[abi(embed_v0)]
     impl ICounterImpl of super::ICounter<ContractState> {
         fn increase_count(ref self: ContractState, amount: u32) {
-            assert(amount != 0, hello_cairo::errors::Errors::ZERO_AMOUNT);
+            assert(amount != 0, ZERO_AMOUNT);
             let current_count: u32 = self.count.read();
-            let result = hello_cairo::addition::add_num(current_count, amount);
+            let result = add_num(current_count, amount);
             self.count.write(result);
         }
 
@@ -25,4 +28,3 @@ mod CounterContract {
         }
     }
 }
-// 0x5afdb452821d219d5b8bc68a44ca3c6fa4dfc313150d30d093a279c090d69e3 - counter_contract_addr

@@ -1,9 +1,9 @@
 [package]
-name = "hello_cairo"
+name = "testing_using_snforge"
 version = "0.1.0"
 edition = "2023_11"
-readme = "README.md"
 
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
 
 [dependencies]
 starknet = "2.6.3"
@@ -13,4 +13,3 @@ snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry", tag = "v
 
 [[target.starknet-contract]]
 casm = true
-sierra = true

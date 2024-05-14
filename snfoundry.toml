@@ -1,4 +1,0 @@
-[sncast.test_deploy_24]
-account = "test_deploy_24"
-accounts-file = "~/.starknet_accounts/starknet_open_zeppelin_accounts.json"
-url = "https://free-rpc.nethermind.io/sepolia-juno/"
