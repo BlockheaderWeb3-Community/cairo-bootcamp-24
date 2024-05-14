@@ -1,6 +1,30 @@
 # Introduction to Testing Using `snforge`
+This branch introduces the fundamental knowledge needed for getting started with writing tests for starknet contracts using `snforge` (by [Starket Foundry](https://foundry-rs.github.io/starknet-foundry/index.html))
 
-### Important Cheat Codes
+## Getting Started
+It contains some sample programs and it's associated tests.
+
+### Set up
+To run the tests, make sure you have Starknet Foundry installed and you can use `snforge` from your terminal.
+- To verify if you have Starknet Foundry and can use `snforge` from your terminal, enter this command:
+```bash
+snforge --version
+```
+If you don't have starknet foundry installed, follow the instruction from the official documentation [here](https://foundry-rs.github.io/starknet-foundry/index.html)
+
+### Running Tests
+- To run all the tests in the project, enter the following command in your terminal:
+```bash
+snforge test
+```
+- The above command will first build all the Starknet contracts to check for errors, and afterwards proceed to run all tests it can find in the project.
+- Before running the command, please ensure your project builds successfully by running:
+```bash
+scarb build
+```
+
+
+## Important Cheat Codes
 `prank` - changes the caller address for contracts, for a number of calls. Calling a cheatcode with CheatSpan::TargetCalls(N) is going to activate the cheatcode for N calls to a specified CheatTarget, after which it's going to be automatically canceled. Of course the cheatcode can still be canceled before its CheatSpan goes down to 0 - simply call stop_prank on the target manually.
 ``` =shell
 prank(CheatTarget::One(contract_address), new_caller_address, CheatSpan::TargetCalls(1))
