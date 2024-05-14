@@ -23,6 +23,9 @@ snforge test
 scarb build
 ```
 
+- All the test cases are located in the [tests](https://github.com/BlockheaderWeb3-Community/cairo-bootcamp-24/tree/testing-using-snforge/tests) folder
+- Each test file name corresponds to the file name of contract being tested.
+
 
 ## Important Cheat Codes
 `prank` - changes the caller address for contracts, for a number of calls. Calling a cheatcode with CheatSpan::TargetCalls(N) is going to activate the cheatcode for N calls to a specified CheatTarget, after which it's going to be automatically canceled. Of course the cheatcode can still be canceled before its CheatSpan goes down to 0 - simply call stop_prank on the target manually.
