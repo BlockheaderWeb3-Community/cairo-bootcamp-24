@@ -5,19 +5,23 @@ pub trait IAggregator<TContractState> {
     fn get_kill_switch_status(
         self: @TContractState, kill_switch_contract_address: ContractAddress
     ) -> bool;
+
     fn fetch_ownable_contract_owner(
         self: @TContractState, ownable_contract_address: ContractAddress
     ) -> ContractAddress;
+
     fn set_new_ownable_contract_owner(
         ref self: TContractState,
         ownable_contract_address: ContractAddress,
         new_owner: ContractAddress
     );
+
     fn increase_aggr_count_by_two(
         ref self: TContractState,
         counter_contract_adress: ContractAddress,
         kill_switch_contract_address: ContractAddress
     );
+
     fn get_aggr_count(self: @TContractState) -> u32;
 }
 
