@@ -26,3 +26,5 @@ mod CounterContract {
     }
 }
 // 0x5afdb452821d219d5b8bc68a44ca3c6fa4dfc313150d30d093a279c090d69e3 - counter_contract_addr
+
+
