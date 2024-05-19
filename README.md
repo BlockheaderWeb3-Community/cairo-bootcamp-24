@@ -69,10 +69,9 @@ While deploying, make sure you check the constructor argument of the contract yo
 - [x] class hash - 0x05f8ca4d37e05826fb90bd68d6ceff9ad3bd5a7ba51dfea46407f9f3aa723442
 - [x] address - 0x5afdb452821d219d5b8bc68a44ca3c6fa4dfc313150d30d093a279c090d69e3
 
-##### AggregatorContract
-- [x] class hash - 0x03cda0dfba87206ed7b8861729a3af653af6682b2c76ec6d4ca73dbd41a5fc11
-- [x] address - 0x1b963d5bcc6bcacd3fdd0d2fec50a6e4ac8b150a74ef2221a4b3622ffe94ec3
-
+##### Aggregator_Contract
+- [x] class hash - 0x7e10115406a93b8bdbb2019d746149105a0261540dc28992c7eaef65177d92a
+- [x] address - 0x2155eb0a0daf351886d41028398e048c0c37b7aa151c5af8a3359f51ec75a20
 
 --- 
 ##### Interacting with Deployed Contracts
