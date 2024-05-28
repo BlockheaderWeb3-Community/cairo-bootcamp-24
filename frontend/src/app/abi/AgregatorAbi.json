@@ -1,0 +1,108 @@
+[
+  {
+    "name": "AggregatorImpl",
+    "type": "impl",
+    "interface_name": "hello_cairo::aggregator_contract::IAggregator"
+  },
+  {
+    "name": "core::bool",
+    "type": "enum",
+    "variants": [
+      {
+        "name": "False",
+        "type": "()"
+      },
+      {
+        "name": "True",
+        "type": "()"
+      }
+    ]
+  },
+  {
+    "name": "hello_cairo::aggregator_contract::IAggregator",
+    "type": "interface",
+    "items": [
+      {
+        "name": "get_kill_switch_status",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "kill_switch_contract_address",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::bool"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "name": "fetch_ownable_contract_owner",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "ownable_contract_address",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "name": "set_new_ownable_contract_owner",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "ownable_contract_address",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "new_owner",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "name": "increase_aggr_count_by_two",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "counter_contract_adress",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "kill_switch_contract_address",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "name": "get_aggr_count",
+        "type": "function",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u32"
+          }
+        ],
+        "state_mutability": "view"
+      }
+    ]
+  },
+  {
+    "kind": "enum",
+    "name": "hello_cairo::aggregator_contract::aggregator::Event",
+    "type": "event",
+    "variants": []
+  }
+]
