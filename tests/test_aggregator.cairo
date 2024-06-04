@@ -34,47 +34,66 @@ fn test_count_should_be_zero() {
 }
 
 #[test]
+// This test function verifies that the aggregated count increases by two.
 fn test_should_increase_count_by_two() {
-    // Deploy contract
+    // Deploy the aggregator contract and store its address.
     let contract_address = deploy_contract("aggregator");
-    // Deploy counter contract
+
+    // Deploy the counter contract and store its address.
     let counter_contract_address = deploy_contract("CounterContract");
 
+    // Initialize the counter dispatcher with the address of the counter contract.
     let counter_dispatcher = ICounterDispatcher {contract_address: counter_contract_address};
-    // increase counter contract by2
+
+    // Request to increase the count in the counter contract by 2.
     counter_dispatcher.increase_count(2);
-    // Deploy kill switch contract
+
+    // Deploy the kill switch contract and store its address.
     let kill_switch_contract_address = deploy_contract("KillSwitch");
-    // Get contract dispatcher
+
+    // Initialize the aggregator dispatcher with the address of the aggregator contract.
     let dispatcher = IAggregatorDispatcher { contract_address };
-    // increase count by two
+
+    // Request to increase the aggregated count by two using the counter and kill switch contracts.
     dispatcher.increase_aggr_count_by_two(counter_contract_address, kill_switch_contract_address);
-    // Get current count
+
+    // Retrieve the current aggregated count from the aggregator.
     let count = dispatcher.get_aggr_count();
-    println!("count____{:?}__", count);
 
+    // Assert that the aggregated count is equal to 2, as expected after the increase.
     assert_eq!(count, 2);
-
 }
+
 
 
 
 #[test]
+// This test function verifies that the owner of an ownable contract is correctly retrieved.
+
+#[test]
 fn test_should_retrieve_ownable_contract_owner() {
+    // Retrieve the account owner's address.
     let owner = Accounts::owner();
-    //Deploy aggregator contract
+
+    // Deploy the aggregator contract and store its address.
     let contract_address = deploy_contract("aggregator");
 
+    // Initialize the aggregator dispatcher with the address of the aggregator contract.
     let aggregator_dispatcher = IAggregatorDispatcher { contract_address };
 
+    // Start a prank to simulate contract interactions from the perspective of the owner.
     start_prank(CheatTarget::One(contract_address), owner);
-    // Deploy ownable contract with contrustor data
+
+    // Deploy an ownable contract and store its address, passing in constructor data if necessary.
     let ownable_contract_address = deploy_contract_with_constructor();
-    // fetch ownable contract owner
+
+    // Fetch the owner address from the ownable contract using the aggregator dispatcher.
     let aggr_owner = aggregator_dispatcher.fetch_ownable_contract_owner(ownable_contract_address);
-    // assert that ownable contract owner is same as owner
+
+    // Assert that the fetched owner address matches the expected owner's address.
     assert_eq!(aggr_owner, owner);
 }
+
 
 
 pub mod Accounts {
