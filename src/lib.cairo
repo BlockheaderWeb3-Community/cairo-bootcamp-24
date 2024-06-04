@@ -1,6 +1,6 @@
 mod addition;
 mod errors;
 mod ownable_contract;
-mod counter_contract;
+pub mod counter_contract;
 mod kill_switch;
-mod aggregator_contract;
+pub mod aggregator_contract;
