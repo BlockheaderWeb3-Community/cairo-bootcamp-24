@@ -65,11 +65,6 @@ fn test_should_increase_count_by_two() {
 }
 
 
-
-
-#[test]
-// This test function verifies that the owner of an ownable contract is correctly retrieved.
-
 #[test]
 fn test_should_retrieve_ownable_contract_owner() {
     // Retrieve the account owner's address.
@@ -92,6 +87,61 @@ fn test_should_retrieve_ownable_contract_owner() {
 
     // Assert that the fetched owner address matches the expected owner's address.
     assert_eq!(aggr_owner, owner);
+}
+
+
+
+// #[test]
+// fn test_should_set_new_owner() {
+//     // Retrieve the account owner's address.
+//     let owner = Accounts::owner();
+
+//     // Deploy the aggregator contract and store its address.
+//     let contract_address = deploy_contract("aggregator");
+
+//     // Initialize the aggregator dispatcher with the address of the aggregator contract.
+//     let aggregator_dispatcher = IAggregatorDispatcher { contract_address };
+
+//     // Start a prank to simulate contract interactions from the perspective of the owner.
+//     start_prank(CheatTarget::One(contract_address), owner);
+
+//     // Deploy an ownable contract and store its address, passing in constructor data if necessary.
+//     let ownable_contract_address = deploy_contract_with_constructor();
+
+//     // set the new owner from the ownable contract using the aggregator dispatcher.
+//     aggregator_dispatcher.set_new_ownable_contract_owner(ownable_contract_address, owner);
+
+//    // Fetch the owner address from the ownable contract using the aggregator dispatcher
+//     let new_owner = aggregator_dispatcher.fetch_ownable_contract_owner(ownable_contract_address);
+
+//     // Assert that the new owner address matches the expected owner's address.
+//     assert_eq!(new_owner, owner);
+// }
+
+
+
+#[test]
+fn test_kill_switch_status_should_return_false() {
+    // Retrieve the account owner's address.
+    let owner = Accounts::owner();
+    
+    // Deploy the aggregator contract and store its address.
+    let contract_address = deploy_contract("aggregator");
+    
+    // Initialize the aggregator dispatcher with the address of the aggregator contract.
+    let aggregator_dispatcher = IAggregatorDispatcher { contract_address };
+
+    // Start a prank to simulate contract interactions from the perspective of the owner.
+    start_prank(CheatTarget::One(contract_address), owner);
+    
+    // Deploy the KillSwitch contract and store its address.
+    let kill_switch_contract_address = deploy_contract("KillSwitch");
+    
+    // Fetch the kill switch status from the aggregator dispatcher using the KillSwitch contract address.
+    let kill_switch_status = aggregator_dispatcher.get_kill_switch_status(kill_switch_contract_address);
+
+    // Assert that the fetched kill switch status matches the expected status (false).
+    assert_eq!(kill_switch_status, false);
 }
 
 
