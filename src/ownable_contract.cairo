@@ -30,7 +30,7 @@ mod OwnerContract {
             assert(!new_owner.is_zero(), hello_cairo::errors::Errors::ZERO_ADDRESS_OWNER);
             let caller = get_caller_address();
             assert(caller == self.owner.read(), hello_cairo::errors::Errors::NOT_OWNER);
-            self.owner.write(caller);
+            self.owner.write(new_owner);
         }
 
         fn get_owner(self: @ContractState) -> ContractAddress {
